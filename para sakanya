@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Confession: Maari ba kitang ligawan?</title>
+  <style>
+    :root{
+      --bg:#fff6fb;
+      --card:#fff;
+      --accent:#ff6b9a;
+      --muted:#8b8b8b;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:linear-gradient(135deg,#fff6fb 0%, #f0fff6 100%);
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+    .card{
+      width:960px;
+      max-width:96vw;
+      background:var(--card);
+      border-radius:20px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns: 1fr 360px;
+      gap:0;
+    }
+    .left{
+      padding:28px;
+    }
+    .title{
+      font-size:28px;
+      margin:0 0 6px 0;
+      color:#2b2b2b;
+    }
+    .subtitle{
+      margin:0 0 18px 0;
+      color:var(--muted);
+    }
+    .question{
+      font-size:34px;
+      font-weight:700;
+      color:var(--accent);
+      margin:12px 0 18px 0;\      letter-spacing:0.3px;
+    }
+    .cats{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+    .cat{
+      flex:1 1 140px;
+      min-width:110px;
+      height:110px;
+      background:#eee;
+      border-radius:12px;
+      overflow:hidden;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      position:relative;
+    }
+    .cat img{width:100%;height:100%;object-fit:cover;display:block}
+    .actions{
+      margin-top:22px;
+      display:flex;
+      gap:12px;
+      align-items:center;\    }
+    .btn{
+      padding:14px 20px;
+      border-radius:12px;
+      border:0;
+      font-weight:700;
+      cursor:pointer;
+      font-size:16px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+    }
+    .btn-yes{
+      background:linear-gradient(90deg,#ff9bb3,#ff6b9a);
+      color:white;
+    }
+    .btn-no{
+      background:#fff;
+      border:2px solid #ffd0df;
+      color:var(--accent);
+      position:relative;
+    }
+    .note{margin-top:12px;color:var(--muted)}
+
+    .right{
+      background:linear-gradient(180deg,#fff6fb 0%, #fffafa 100%);
+      padding:28px;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:12px;
+    }
+    .heart{
+      width:120px;height:120px; border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      background:radial-gradient(circle at 30% 30%, #fff, #ffeef6);
+      box-shadow:0 14px 30px rgba(255,107,154,0.18);
+      position:relative; overflow:visible;
+    }
+    .heart::before{
+      content:"";
+      position:absolute; width:60px; height:60px; background:var(--accent); transform:rotate(-45deg);
+      left:30px; top:16px; border-radius:8px 8px 0 0;
+      clip-path: polygon(0 30%, 50% 0, 100% 30%, 100% 100%, 0 100%);
+      filter:drop-shadow(0 6px 12px rgba(255,107,154,0.25));
+      animation: pulse 1500ms infinite;
+    }
+    @keyframes pulse{
+      0%{transform:rotate(-45deg) scale(1)}
+      50%{transform:rotate(-45deg) scale(1.06)}
+      100%{transform:rotate(-45deg) scale(1)}
+    }
+
+    .mini-cats{display:flex;gap:8px;margin-top:10px}
+    .mini-cats img{width:56px;height:56px;object-fit:cover;border-radius:10px}
+
+    /* playful movement for the No button */
+    .no-escaped{transform:translate(220px, -20px) rotate(-10deg)}
+    .no-shake{animation: shake 700ms}
+    @keyframes shake{0%{transform:translateX(0)}25%{transform:translateX(-8px)}50%{transform:translateX(8px)}75%{transform:translateX(-6px)}100%{transform:translateX(0)}}
+
+    /* confetti (simple) */
+    .confetti{position:fixed;left:0;top:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+    .confetti span{position:absolute;width:10px;height:14px;background:#ff6b9a;opacity:0.95;border-radius:2px}
+
+    /* responsive */
+    @media (max-width:800px){
+      .card{grid-template-columns:1fr;}
+      .right{order:-1}
+    }
+
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="left">
+      <h1 class="title">Surprise! 🐾</h1>
+      <p class="subtitle">May ipapakita muna akong mga cute na pusa bago ka sumagot.</p>
+
+      <h2 class="question">Maari ba kitang ligawan?</h2>
+
+      <div class="cats" id="cats">
+        <!-- placeholder cat images from placekitten.com -->
+        <div class="cat"><img src="https://placekitten.com/320/220" alt="cute cat 1"></div>
+        <div class="cat"><img src="https://placekitten.com/331/220" alt="cute cat 2"></div>
+        <div class="cat"><img src="https://placekitten.com/300/300" alt="cute cat 3"></div>
+        <div class="cat"><img src="https://placekitten.com/350/240" alt="cute cat 4"></div>
+      </div>
+
+      <div class="actions">
+        <button class="btn btn-yes" id="yesBtn">Oo, pwede 🌸</button>
+        <button class="btn btn-no" id="noBtn">Hindi 🙃</button>
+      </div>
+
+      <p class="note">Tip: pipiliin ng mga pusa at puso mo 'Oo' — try mo click 'Hindi' magpakita tayo ng surpresa 😉</p>
+    </div>
+
+    <div class="right">
+      <div class="heart" aria-hidden>
+        <!-- decorative heart -->
+      </div>
+      <div class="mini-cats">
+        <img src="https://placekitten.com/90/90" alt="mini cat 1">
+        <img src="https://placekitten.com/91/90" alt="mini cat 2">
+        <img src="https://placekitten.com/92/90" alt="mini cat 3">
+      </div>
+      <p style="color:var(--muted);text-align:center;margin-top:10px">Pindutin ang <strong>Oo</strong> para mag-forward sa ligawan mode 💌</p>
+    </div>
+  </div>
+
+  <div class="confetti" id="confetti"></div>
+
+  <script>
+    const yesBtn = document.getElementById('yesBtn');
+    const noBtn = document.getElementById('noBtn');
+    let noAttempts = 0;
+
+    function launchConfetti(){
+      const area = document.getElementById('confetti');
+      area.innerHTML = '';
+      for(let i=0;i<30;i++){
+        const s = document.createElement('span');
+        s.style.left = Math.random()*100 + '%';
+        s.style.top = '-10%';
+        s.style.transform = 'rotate('+ (Math.random()*360) +'deg)';
+        s.style.background = ['#ff6b9a','#ffd166','#9ad3bc','#b3a2ff'][Math.floor(Math.random()*4)];
+        s.style.animation = 'fall '+(2+Math.random()*2)+'s linear forwards';
+        s.style.opacity = (0.6+Math.random()*0.4);
+        s.style.width = (6+Math.random()*12)+'px';
+        s.style.height = (8+Math.random()*16)+'px';
+        area.appendChild(s);
+      }
+      // simple CSS for falling created dynamically
+      const style = document.createElement('style');
+      style.innerHTML = `@keyframes fall{to{transform:translateY(110vh) rotate(360deg);opacity:0;}}`;
+      document.head.appendChild(style);
+      setTimeout(()=> area.innerHTML = '',3500);
+    }
+
+    yesBtn.addEventListener('click', ()=>{
+      yesBtn.disabled = true;
+      yesBtn.innerText = 'Sana maging tayo na... 💖';
+      launchConfetti();
+      // gentle success effect
+      yesBtn.style.transform = 'scale(0.98)';
+      setTimeout(()=>{
+        yesBtn.style.transform = '';
+      },900);
+    });
+
+    noBtn.addEventListener('mouseenter', ()=>{
+      // on hover, make it dodge a bit
+      if(noAttempts < 3){
+        noBtn.classList.add('no-escaped');
+        setTimeout(()=> noBtn.classList.remove('no-escaped'),600);
+        noAttempts++;
+      }
+    });
+
+    noBtn.addEventListener('click', ()=>{
+      // when user tries to click No, do playful reactions
+      noAttempts++;
+      noBtn.classList.add('no-shake');
+      setTimeout(()=> noBtn.classList.remove('no-shake'),700);
+
+      if(noAttempts === 1){
+        alert('Ay, hindi pwede dito... 😺');
+      } else if(noAttempts === 2){
+        alert('Uulitin mo ba? Pupa-oo na lang kita.');
+      } else if(noAttempts >= 3){
+        // after some tries, convert No into Yes
+        noBtn.innerText = 'Oo na rin 😅';
+        noBtn.disabled = true;
+        noBtn.style.cursor = 'default';
+        // automatically trigger yes behavior after short pause
+        setTimeout(()=> yesBtn.click(),700);
+      }
+    });
+
+    // small accessibility: keyboard support
+    document.addEventListener('keydown',(e)=>{
+      if(e.key === 'y' || e.key === 'Y') yesBtn.click();
+      if(e.key === 'n' || e.key === 'N') noBtn.click();
+    });
+  </script>
+</body>
+</html>

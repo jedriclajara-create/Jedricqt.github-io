@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="tl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tung Tung Sahur — Italian Brainrot Remix</title>
+  <style>
+    :root{--bg:#0b1020;--card:#0f1726;--accent:#ff6b9a;--muted:#9aa4b2;--glass:rgba(255,255,255,0.04);font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial}
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071022 0%,#0b1220 100%);color:#eef6ff;min-height:100vh}
+    .wrap{max-width:1100px;margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;gap:14px}
+    .logo{width:64px;height:64px;border-radius:12px;background:linear-gradient(135deg,#ffd6e0,#ff9bb3);display:flex;align-items:center;justify-content:center;font-weight:900;color:#2a0610}
+    h1{margin:0;font-size:26px}
+    p.lead{color:var(--muted);margin-top:6px}
+
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .card{background:var(--card);border-radius:14px;padding:16px;box-shadow:0 8px 28px rgba(3,6,23,0.6)}
+
+    .section-title{display:flex;align-items:center;gap:10px}
+    .section-title h2{margin:0;font-size:18px}
+    .muted{color:var(--muted)}
+
+    .shrine{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:12px}
+    .char{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;display:flex;gap:12px;align-items:center}
+    .char img{width:80px;height:80px;object-fit:cover;border-radius:10px}
+    .char .meta{flex:1}
+    .char .meta h3{margin:0;font-size:16px}
+    .char .meta p{margin:6px 0 0 0;color:var(--muted);font-size:13px}
+
+    .gallery{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+    .gallery img{width:calc(50% - 4px);border-radius:10px}
+
+    .controls{display:flex;gap:10px;margin-top:12px}
+    .btn{padding:10px 12px;border-radius:10px;border:0;font-weight:700;cursor:pointer}
+    .btn-accent{background:linear-gradient(90deg,var(--accent),#ffd6a5);color:#2a0610}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit}
+
+    .sahur-list{display:flex;gap:8px;flex-direction:column;margin-top:10px}
+    .sahur-item{background:var(--glass);padding:10px;border-radius:8px}
+
+    footer{text-align:center;color:var(--muted);margin-top:18px}
+
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.shrine{grid-template-columns:1fr}.gallery img{width:100%}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">TT</div>
+      <div>
+        <h1>Tung Tung Sahur — Italian Brainrot Remix</h1>
+        <p class="lead">Mashup ng sahur vibes + chaotic Italian brainrot aesthetics. Chill, weird, at medyo tawang-tawa.</p>
+      </div>
+    </header>
+
+    <div class="grid">
+      <main>
+        <div class="card">
+          <div class="section-title"><h2>Quick TL;DR</h2><span class="muted">Ano 'to</span></div>
+          <p class="muted" style="margin-top:8px">Ito isang playful fanpage — parang shrine — kung saan pinagsama ang TunG TunG sahur ideas at yung surreal "Italian brainrot" meme energy: nonsense names, sped-up loops, at weird character art. Safe-for-fun lang.</p>
+
+          <div style="margin-top:12px" class="section-title"><h2>Shrine — Characters</h2><span class="muted">Fake Italian-sounding brainrot characters</span></div>
+          <div class="shrine">
+            <div class="char">
+              <img src="https://picsum.photos/seed/tralala/300/300" alt="Tralalero Tralala">
+              <div class="meta">
+                <h3>Tralalero Tralala</h3>
+                <p>Maingay, mahilig sa kape at tambay sa sahur. Speech bubble: "Tung tung?"</p>
+              </div>
+            </div>
+            <div class="char">
+              <img src="https://picsum.photos/seed/cappuccina/300/300" alt="Ballerina Cappuccina">
+              <div class="meta">
+                <h3>Ballerina Cappuccina</h3>
+                <p>Graceful pero chaotic — umiikot palagi, may mini tambourine.</p>
+              </div>
+            </div>
+            <div class="char">
+              <img src="https://picsum.photos/seed/patapim/300/300" alt="Brr Brr Patapim">
+              <div class="meta">
+                <h3>Brr Brr Patapim</h3>
+                <p>Misteryosong aso na parang may sariling soundtrack. Gumagalaw lang kapag may sahur.</p>
+              </div>
+            </div>
+            <div class="char">
+              <img src="https://picsum.photos/seed/tungtung/300/300" alt="Tung Tung Sahur">
+              <div class="meta">
+                <h3>Tung Tung Sahur</h3>
+                <p>Pinaka-hyper ang sarili niyang pangalan. Kumakain ng pandesal na may hisop.</p>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:14px" class="section-title"><h2>Gallery + Loops</h2><span class="muted">Placeholder images + generated loop</span></div>
+          <div class="gallery">
+            <img src="https://picsum.photos/seed/1/800/600" alt="brainrot 1">
+            <img src="https://picsum.photos/seed/2/800/600" alt="brainrot 2">
+          </div>
+
+          <div class="controls">
+            <button class="btn btn-accent" id="playLoop">Play Brainrot Loop</button>
+            <button class="btn btn-ghost" id="stopLoop">Stop</button>
+            <button class="btn btn-ghost" id="randomize">Randomize Names</button>
+          </div>
+
+          <p class="muted" style="margin-top:10px">Tip: pwede mong i-click ang Play at mag-browse — loop uses WebAudio synthesis (no files needed).</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <div class="section-title"><h2>Sahur Menu — Italian Brainrot Edition</h2><span class="muted">Kombinasyon ng Pinoy sahur at fake-Italian flair</span></div>
+          <div class="sahur-list">
+            <div class="sahur-item"><strong>Pandesal alla Parigina</strong> — pandesal na may minyong pesto (joke, optional)</div>
+            <div class="sahur-item"><strong>Silogissimo</strong> — sinangag + itlog + 'mysterious sauce'</div>
+            <div class="sahur-item"><strong>Instant Noodle alla Nonna</strong> — instant na may extra garlic chips</div>
+          </div>
+        </div>
+
+      </main>
+
+      <aside>
+        <div class="card">
+          <div class="section-title"><h2>About the Meme</h2><span class="muted">Short notes</span></div>
+          <p class="muted" style="margin-top:8px">"Italian brainrot" — parang genre ng weird memes: silly Italian-sounding words, sped-up voice snippets, and odd AI art. Ginagamit lang for humor; sensitive content can exist so be mindful.</p>
+
+          <div style="margin-top:12px" class="section-title"><h2>Quick Controls</h2></div>
+          <p class="muted">Use keys: <strong>P</strong> to play, <strong>S</strong> to stop, <strong>R</strong> to randomize names.</p>
+
+          <div style="margin-top:12px" class="section-title"><h2>Share</h2></div>
+          <p class="muted">Copy this file and tweak images/text para sa sarili mong shrine. Wala itong backend — local demo lang.</p>
+        </div>
+
+        <div class="card" style="margin-top:12px">
+          <h3>Credits</h3>
+          <p class="muted">Made by you + lil' chaotic JS. Images from picsum.photos placeholders.</p>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <p class="muted">Tung Tung + Italian Brainrot — prank vibes lang. Be kind.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Simple WebAudio 'brainrot' loop: silly pitched arpeggio + noise burst
+    let audioCtx, oscNodes = [], gainNode, isPlaying = false;
+    function initAudio(){
+      if(audioCtx) return;
+      audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      gainNode = audioCtx.createGain();
+      gainNode.gain.value = 0.15;
+      gainNode.connect(audioCtx.destination);
+    }
+
+    function playLoop(){
+      if(isPlaying) return; initAudio(); isPlaying = true;
+      // create a melodic loop using 3 oscillators
+      const now = audioCtx.currentTime;
+      const freqs = [440, 660, 880];
+      oscNodes = freqs.map((f,i)=>{
+        const o = audioCtx.createOscillator();
+        const g = audioCtx.createGain();
+        o.type = ['sine','triangle','sawtooth'][i%3];
+        o.frequency.setValueAtTime(f, now);
+        g.gain.setValueAtTime(0, now);
+        o.connect(g); g.connect(gainNode);
+        o.start();
+        // schedule simple arpeggio
+        for(let k=0;k<8;k++){
+          g.gain.linearRampToValueAtTime(0.12 - i*0.03, now + k*0.25 + 0.01);
+          g.gain.linearRampToValueAtTime(0, now + k*0.25 + 0.2);
+        }
+        return {o,g};
+      });
+      // noise-ish burst using buffer
+      const bufferSize = audioCtx.sampleRate * 1.2;
+      const buffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for(let i=0;i<bufferSize;i++) data[i] = (Math.random()*2-1)*0.25;
+      const src = audioCtx.createBufferSource();
+      src.buffer = buffer; src.loop = true; src.connect(gainNode);
+      src.start();
+      oscNodes.push(src);
+    }
+    function stopLoop(){
+      if(!isPlaying) return; isPlaying = false;
+      oscNodes.forEach(n=>{
+        try{ if(n.o) n.o.stop(); else n.stop(); }catch(e){}
+      });
+      oscNodes = [];
+    }
+
+    document.getElementById('playLoop').addEventListener('click', ()=>{ playLoop(); });
+    document.getElementById('stopLoop').addEventListener('click', ()=>{ stopLoop(); });
+
+    // randomize character names (playful)
+    const adjectives = ['Trala','Brr','Cappu','Pata','Zitto','Giro','Luna','Mambo'];
+    const nouns = ['lero','pim','cappina','sahurino','tung','cicci','nonna','pesto'];
+    function randomName(){ return adjectives[Math.floor(Math.random()*adjectives.length)] + ' ' + nouns[Math.floor(Math.random()*nouns.length)]; }
+    document.getElementById('randomize').addEventListener('click', ()=>{
+      document.querySelectorAll('.shrine .meta h3').forEach(h=> h.innerText = randomName());
+    });
+
+    // keyboard shortcuts
+    document.addEventListener('keydown',(e)=>{
+      if(e.key.toLowerCase()==='p') playLoop();
+      if(e.key.toLowerCase()==='s') stopLoop();
+      if(e.key.toLowerCase()==='r') document.getElementById('randomize').click();
+    });
+  </script>
+</body>
+</html>
